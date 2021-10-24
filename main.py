@@ -2,6 +2,18 @@ import os
 import newuser
 import login
 import weathersearch
+import sys
+
+
+def run():
+    if sys.argv[1] == "--help":
+        print("How it Works\nThe Weather Data is fetched from OpenWeatherMap API \
+You need an Account and API key for that\n\
+The data is fetched using urllib3 library\n\
+The returned data is parsed and displayed on the Console.\n\
+The login System is implemented using bcrypt library.\n")
+    else:
+        main_menu()
 
 def title_bar():
     # os.system('clear')
@@ -53,5 +65,5 @@ def new_user():
 
 
 # main driver
-main_menu()
+run()
 
