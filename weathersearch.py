@@ -18,9 +18,11 @@ def weather_search():
     try:
         if data['cod']:
             print(data["message"], end='\n')
-            key = input("Press Enter to search again")
+            key = input("Press Enter to search again.\nPress q to quit")
             if key == '':
                 weather_search()
+            else:
+                return
     except:
         print("city:", data['name'])
         print("humidity:", data['main']['humidity'])
@@ -28,6 +30,7 @@ def weather_search():
         print("temperature:", data['main']['temp'])
         print("wind speed:", data['wind']['speed'])
         print("city:", data['wind']['deg'])
+        print("\n")
         choice = input("Press x to search new city or any other key to quit")
         if choice == 'x':
             weather_search()

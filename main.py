@@ -17,7 +17,8 @@ def main_menu():
     print(10 * "*", "WELCOME MENU", 10 * "*")
     print("[1] New User")
     print("[2] Login")
-    print("[3] Quit")
+    print("[3] User Management")
+    print("[4] Quit")
 
     while True:
         choice = int(input("Enter Choice: "))
@@ -30,13 +31,14 @@ def main_menu():
             login.login()
             import os
             os.system('cls')
+            print("Logged in....")
             choice = input("Press x to search weather of your location.\nPress l to logout.\n")
             if choice == 'l':
                 main_menu()
             if choice == 'x':
                 weathersearch.weather_search()
             break
-        elif choice == 3:
+        elif choice == 4:
             print("Have a Nice Day!")
             break
         else:
@@ -52,3 +54,4 @@ def new_user():
 
 # main driver
 main_menu()
+
