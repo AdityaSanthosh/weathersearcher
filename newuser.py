@@ -7,12 +7,12 @@ def new_user():
     usernames = list(usernames)
     passwords = list(passwords)
     print("New Account Creation Wizard")
-    newusername = input("Enter Username")
-    password = input("Enter Password")
-    re_pass = input("Retype Password")
+    newusername = input("Enter Username:\t")
+    password = input("Enter Password:\t")
+    re_pass = input("Retype Password:\t")
     if password == re_pass:
         if newusername.lower() in usernames:
-            print("Sorry. Someone with this username already exists.\n.Please Choose a new one")
+            print("Sorry. Someone with this username already exists.\nPlease Choose a new one")
             new_user()
         else:
             usernames.append(newusername)
