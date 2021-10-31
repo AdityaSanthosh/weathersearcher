@@ -1,4 +1,3 @@
-import numpy as np
 import bcrypt
 import os
 import sys
@@ -34,6 +33,7 @@ def save_obj(obj, filename='db.pkl'):
         pickle.dump(obj, outp, pickle.HIGHEST_PROTOCOL)
     print("Saved!")
     outp.close()
+    return True
 
 
 def load_db():
@@ -47,35 +47,10 @@ class User:
         self.username = username
         self.password = hash_password(password).decode('utf-8')
 
-    # def manage_user(self):
-    #     clear_console()
-    #     # title of the program
-    #     print("***** Your Profile *****")
-    #     print(10 * "*", "", 10 * "*")
-    #     print("WELCOME %s" % self.username)
-    #     print("[1] Change User Details")
-    #     print("[2] Delete User")
-    #     print("[3] Quit")
-    #
-    #     while True:
-    #         choice = int(input("Enter Choice: "))
-    #         clear_console()
-    #         if choice == 1:
-    #             self.update_user()
-    #             break
-    #         elif choice == 2:
-    #             self.delete_user()
-    #             break
-    #         elif choice == 3:
-    #             print("Have a Nice Day!")
-    #             break
-    #         else:
-    #             print("You did not choose the right option. Enter options between 1-3")
-
     def delete_user(self):
         key = input("Are you sure you really want to delete your account?\nType y or Y for confirmation\n")
         if key.lower() != 'y':
-            return
+            return False
         obj_list = load_db()
         for obj in obj_list:
             if obj.username == self.username:
@@ -83,7 +58,7 @@ class User:
                 print("User deleted!")
                 break
         save_obj(obj_list)
-        return
+        return True
 
     def update_user(self):
         name = input("Enter new name:  ")
@@ -115,6 +90,7 @@ def new_user():
     users_list = load_db()
     users_list.append(newuser)
     save_obj(users_list)
+    return True
 
 
 class App:
