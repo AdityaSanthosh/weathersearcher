@@ -9,8 +9,7 @@ To run this App
 4. Create an API key at https://openweathermap.org/api by creating an Account
 5. Place the key at .env file in the source code
 6. Run ```python main.py``` to run the App
-7. The Instructions to use the App are present in the App itself
-
+7. Run ```python -m unittest test_main.py``` to test the App
 ###### How it Works
 
 1. The Weather Data is fetched from OpenWeatherMap API
